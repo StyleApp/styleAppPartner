@@ -1,0 +1,82 @@
+<!--
+  Generated template for the MisServiciosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>misServicios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+	<div padding>
+	  <ion-segment [(ngModel)]="operacion">
+	    <ion-segment-button value="crear">
+	      Agregar Servicio
+	    </ion-segment-button>
+	    <ion-segment-button value="misServicios" (click)="cargarMisServicios()" >
+	      Mis servicios
+	    </ion-segment-button>
+	  </ion-segment>
+	</div>
+
+	<div [ngSwitch]="operacion">
+	  <ion-list *ngSwitchCase="'crear'">
+
+
+				<ion-item class="fondo padding-0">
+			      <!--<ion-label>Titulo noticia</ion-label>-->
+			      <ion-input placeholder="Titulo noticia"  [(ngModel)]="titulo" type="text"></ion-input>
+			    </ion-item>
+
+			    
+
+			    <ion-item class="fondo padding-0">
+			      <!--<ion-label>Descripción de la noticia</ion-label>-->
+			      <ion-textarea [(ngModel)]="descripcion" class="descripcionCrearNoticia padding-0"  placeholder="Descripción de noticia" name="description"></ion-textarea>
+			    </ion-item>
+
+				<button (click)="cargarImagen()" color="colorAmarillo" ion-button full>Cargar imagen
+				</button>
+
+
+			   <img *ngIf="fotoCliente != '-' " [src]="fotoCliente">
+
+
+			     <button *ngIf="fotoCliente != '-' "  [disabled]="entra" ion-button full  (click)="createUploadTask()">Enviar a Style app</button>
+			     <p *ngIf="entra">La foto ha sido cargada exitosamente</p>
+
+
+<!--
+				<button (click)="agregarFeed()" *ngIf="entra" color="colorAmarillo" ion-button full>Subir servicio
+				</button>
+-->
+	    
+	  </ion-list>
+
+	   <ion-list *ngSwitchCase="'misServicios'">
+	    
+	    	<ion-list>
+			  <ion-item *ngFor="let item of dataServicios">
+			    <ion-avatar item-start>
+			      <img [src]="item.urlImagen">
+			    </ion-avatar>
+			    <h2>{{item.titulo}}</h2>
+			    <p>.{{item.descripcion}}</p>
+			  </ion-item>
+			</ion-list>
+
+	  </ion-list>
+	  
+	</div>
+
+
+
+</ion-content>

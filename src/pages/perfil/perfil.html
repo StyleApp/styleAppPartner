@@ -1,0 +1,71 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+		<div class="centrado">
+
+	  
+
+	     <div class="centrado"  *ngIf="fotoCliente == '-' && perfilPartner.photoUrl == undefined" (click)="cargarImagen()">
+
+		     <div class="wrapper-perfil">
+
+		      <img class="img-circle-perfil" src="assets/imgs/perfilSubir.jpg">
+
+		    </div>
+		  </div>
+
+		  <img *ngIf="fotoCliente != '-' " [src]="fotoCliente">
+		  <img *ngIf="perfilPartner.photoUrl != undefined && fotoCliente == '-' " [src]="perfilPartner.photoUrl" (click)="cargarImagen()">
+		  
+
+	     <button *ngIf="fotoCliente != '-' "  [disabled]="entra" ion-button full  (click)="subirFotoDePerfil()">Enviar a Style app</button>
+	     <p *ngIf="entra">La foto ha sido cargada exitosamente</p>
+
+
+	    <ion-item class="fondo padding-0">
+			      
+			      <ion-input placeholder="Nombre"  [(ngModel)]="perfilPartner.nombre" type="text" (input)="verificarCambios($event.target.value)"></ion-input>
+	    </ion-item>
+
+	     <ion-item class="fondo padding-0">
+			      
+			      <ion-input placeholder="apellido"  [(ngModel)]="perfilPartner.apellido" type="text" (input)="verificarCambios($event.target.value)"></ion-input>
+	    </ion-item>
+
+	     <ion-item class="fondo padding-0">
+			      
+			      <ion-input placeholder="Celular"  [(ngModel)]="perfilPartner.celular" type="text" (input)="verificarCambios($event.target.value)"></ion-input>
+	    </ion-item>
+
+	     <ion-item class="fondo padding-0">
+			      
+			      <ion-input placeholder="Email" disabled="true" [(ngModel)]="perfilPartner.email" type="text"></ion-input>
+
+	    </ion-item>
+
+	    <button (click)="guardarCambios()" color="colorAmarillo"  [disabled]="activaGuardar" ion-button full>Guardar datos
+				</button>
+
+	</div>
+
+	     
+
+
+	  
+
+
+</ion-content>

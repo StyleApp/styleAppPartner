@@ -1,0 +1,24 @@
+<!--
+  Generated template for the OlvidoClavePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+
+
+	 <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <br>
+       <div class="content-btn-lg">
+        <button  ion-button full (click)="resetPassword()" center>Enviar</button>
+      </div>
+      <br>
+       <div class="content-btn-lg">
+        <button  ion-button full (click)="volver()" center>Volver</button>
+      </div>
+
+</ion-content>
